@@ -18,3 +18,13 @@ jobs:
     steps:
       - name: job-2
         run: echo "Hello ${{needs.job-1.outputs.NAME}}"
+  job-3-matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [18, 20, 22]
+    steps:
+      - name: job-3-matrix
+        run: echo "Hello ${{matrix.os}} ${{matrix.node-version}}"
+  
