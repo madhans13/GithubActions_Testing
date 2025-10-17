@@ -9,4 +9,4 @@ jobs:
         id: cal
         run: echo "Name=madhan" >> $GITHUB_OUTPUT
       - name: output
-        run: echo ${steps.cal.outputs.Name}
+        run: echo "${{steps.cal.outputs.Name}}"
