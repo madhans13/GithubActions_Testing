@@ -7,6 +7,11 @@ jobs:
     steps:
       - name: calculation
         id: cal
-        run: echo "Name=madhan" >> $GITHUB_RANDOM
+        run: echo "Name=madhan" >> $GITHUB_OUTPUT
       - name: output
-        run: echo "${{steps.cal.outputs.GITHUB_RANDOM}}"
+        run: echo "${{steps.cal.outputs.Name}}"
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job-2
+        run: echo "Hello ${{steps.cal.outputs.Name}}"
