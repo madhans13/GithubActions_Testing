@@ -1,0 +1,12 @@
+name: CI
+on:
+  workflow_dispatch:
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: calculation
+        id: cal
+        run: echo "Name=madhan" >> $GITHUB_OUTPUT
+      - name: output
+        run: echo "{steps.cal.outputs.Name}"
