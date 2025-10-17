@@ -4,6 +4,8 @@ on:
 jobs:
   job-1:
     runs-on: ubuntu-latest
+    outputs:
+      NAME: ${{steps.cal.outputs.Name}}
     steps:
       - name: calculation
         id: cal
@@ -15,4 +17,4 @@ jobs:
     needs: job-1
     steps:
       - name: job-2
-        run: echo "Hello ${{steps.cal.outputs.Name}}"
+        run: echo "Hello ${{needs.job-1.outputs.NAME}}"
